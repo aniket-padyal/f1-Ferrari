@@ -53,10 +53,7 @@ const Hero = () => {
     video.currentTime = 0;
 
     const startValue = isMobile ? "top top" : "center 60%";
-    // const endValue = isMobile ? "140% top" : "bottom top";
-    const endValue = isMobile
-      ? `${Math.min(video.duration * 30, 180)}% top`
-      : "bottom top";
+    const endValue = isMobile ? "140% top" : "bottom top";
 
     video.onloadedmetadata = () => {
       gsap
