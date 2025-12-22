@@ -45,15 +45,16 @@ body {
 
 @utility radial-gradient {
   background: radial-gradient(
-    circle at center,
-    #434343 0%,
-    #000 50%,
-    transparent 100%
+    ellipse at center,
+    #7d0f0f 0%,
+    #3a0505 45%,
+    #0b0000 75%,
+    #000000 100%
   );
 }
 
 @utility masked-img {
-  mask-image: url("/images/mask-img.png");
+  mask-image: url("/images/F1-Tyre.png");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: 50%;
@@ -180,7 +181,7 @@ body {
     @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
 
     .content {
-      @apply grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5 ;
+      @apply grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5;
 
       h2 {
         @apply text-5xl md:text-6xl font-modern-negra max-w-lg;
@@ -239,11 +240,15 @@ body {
       @apply relative md:text-[20vw] text-8xl text-nowrap leading-none font-modern-negra text-center text-[#505050] mb-8;
     }
 
+    h3 {
+      @apply mb-4 font-bold text-3xl font-modern-negra text-yellow;
+    }
+
     .content {
       @apply flex md:flex-row flex-col justify-between md:mb-16 md:mt-0 mt-40 gap-10;
     }
 
-    .cocktail-img {
+    .car-img {
       @apply md:w-[60vw] w-full h-[50vh] md:h-[70vh] rounded-4xl overflow-hidden absolute top-0 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2;
     }
 

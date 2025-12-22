@@ -86,18 +86,80 @@ const profileLists = [
   },
 ];
 
-const featureLists = [
-  "Perfectly balanced blends",
-  "Garnished to perfection",
-  "Ice-cold every time",
-  "Expertly shaken & stirred",
+const performanceLists = [
+  {
+    id: 1,
+    key: "Power Unit",
+    value: "1.6L Turbo Hybrid V6",
+  },
+  {
+    id: 2,
+    key: "Total Power Output",
+    value: "~1000 HP",
+  },
+  {
+    id: 3,
+    key: "Top Speed",
+    value: "350+ km/h",
+  },
+  {
+    id: 4,
+    key: "Acceleration",
+    value: "0–100 km/h in ~2.4s",
+  },
+  {
+    id: 5,
+    key: "Energy Recovery System (ERS)",
+    value: "Kinetic + Thermal",
+  },
+  {
+    id: 6,
+    key: "Fuel Flow Limit",
+    value: "100 kg/hour (FIA regulated)",
+  },
+  {
+    id: 7,
+    key: "Rev Limit",
+    value: "15,000 RPM",
+  },
 ];
 
-const goodLists = [
-  "Handpicked ingredients",
-  "Signature techniques",
-  "Bartending artistry in action",
-  "Freshly muddled flavors",
+const chasisLists = [
+  {
+    id: 1,
+    key: "Chassis",
+    value: "Carbon Fiber Monocoque",
+  },
+  {
+    id: 2,
+    key: "Transmission",
+    value: "8-Speed Semi-Automatic Gearbox",
+  },
+  {
+    id: 3,
+    key: "Weight",
+    value: "798 kg (Including Driver, FIA Spec)",
+  },
+  {
+    id: 4,
+    key: "Suspension",
+    value: "Push-Rod Front & Rear",
+  },
+  {
+    id: 5,
+    key: "Braking System",
+    value: "Carbon-Carbon Disc Brakes",
+  },
+  {
+    id: 6,
+    key: "Aero Concept",
+    value: "High-Downforce Package",
+  },
+  {
+    id: 7,
+    key: "Steering System",
+    value: "Power-Assisted Rack & Pinion",
+  },
 ];
 
 const storeInfo = {
@@ -174,8 +236,8 @@ export {
   cocktailLists,
   mockTailLists,
   profileLists,
-  featureLists,
-  goodLists,
+  performanceLists,
+  chasisLists,
   openingHours,
   storeInfo,
   socials,
