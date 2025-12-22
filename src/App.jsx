@@ -3,6 +3,7 @@ import gsap from "gsap";
 
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
+import CarInfo from "./components/CarInfo.jsx";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -11,7 +12,7 @@ const App = () => {
     <main>
       <Navbar />
       <Hero />
- 
+      <CarInfo />
     </main>
   );
 };

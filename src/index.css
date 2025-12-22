@@ -37,7 +37,7 @@ body {
 }
 
 @utility text-gradient {
-  background: linear-gradient(to bottom, #ffffff, #898989);
+  background: linear-gradient(to bottom, #ff4d4d, #8b0000);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -68,7 +68,7 @@ body {
     @apply fixed z-50 w-full;
 
     div {
-      @apply flex md:flex-row flex-col md:justify-between items-center gap-5 py-5 lg:px-0 px-5 container mx-auto;
+      @apply flex md:flex-row flex-col md:justify-between items-center gap-5 py-5 md:py-1 lg:px-0 px-5 container mx-auto;
     }
 
     p {
@@ -136,33 +136,25 @@ body {
     }
   }
 
-  .video-wrapper {
-    @apply fixed inset-0 w-screen h-dvh overflow-hidden z-0;
-
-    .video-wrapper video {
-      @apply w-full h-full object-cover;
-    }
+  .video {
+    @apply fixed inset-0 w-full h-screen z-0 pointer-events-none overflow-hidden;
   }
 
-  #cocktails {
+  .video video {
+    @apply w-full h-full object-cover block;
+  }
+
+  #carInfo {
     @apply relative min-h-dvh w-full overflow-hidden;
 
-    #c-left-leaf {
-      @apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
-    }
-
-    #c-right-leaf {
-      @apply absolute right-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
-    }
-
     .list {
-      @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-start gap-20 pt-40 2xl:px-0 px-5;
+      @apply container mx-auto relative z-10 flex md:flex-row flex-col justify-between items-start gap-20 pt-60 2xl:px-0 px-5;
 
-      .popular {
+      .left {
         @apply space-y-8 w-full md:w-fit;
       }
 
-      .loved {
+      .right {
         @apply space-y-8 w-full md:w-fit pb-20 md:pb-0;
       }
 
@@ -170,23 +162,15 @@ body {
         @apply text-xl font-medium;
       }
 
+      h3 {
+        @apply font-modern-negra 2xl:text-3xl text-xl text-yellow;
+      }
+
       ul {
-        @apply space-y-8;
+        @apply space-y-5 list-disc;
 
         li {
-          @apply flex justify-between items-start;
-
-          h3 {
-            @apply font-modern-negra 2xl:text-3xl text-xl text-yellow;
-          }
-
-          p {
-            @apply text-sm;
-          }
-
-          span {
-            @apply text-xl font-medium;
-          }
+          @apply font-modern-negra list-disc list-inside text-xl 2xl:text-3xl;
         }
       }
     }

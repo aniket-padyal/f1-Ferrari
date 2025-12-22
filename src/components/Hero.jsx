@@ -1,74 +1,84 @@
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { SplitText, ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
-import useMediaQuery from "react-responsive";
-import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-ScrollTrigger.config({
-  ignoreMobileResize: true,
-  anticipatePin: 1,
-});
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
   const videoRef = useRef(null);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   useGSAP(() => {
-    ScrollTrigger.getAll().forEach((st) => st.kill());
+    // ---------------- TEXT SPLIT ----------------
+    document.fonts.ready.then(() => {
+      const heroSplit = new SplitText(".title", { type: "chars, words" });
+      const paragraphSplit = new SplitText(".subtitle", { type: "lines" });
 
-    const video = videoRef.current;
-    if (!video) return;
+      heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
 
-    video.style.transform = "translateZ(0)";
-    video.pause();
-    video.currentTime = 0;
+      gsap.from(heroSplit.chars, {
+        yPercent: 100,
+        opacity: 0,
+        ease: "expo.out",
+        duration: 1.8,
+      });
 
-    // document.fonts.ready.then(() => {
-    const heroSplit = new SplitText(".title", { type: "chars, words" });
-    const paragraphSplit = new SplitText(".subtitle", { type: "lines" });
-
-    heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
-
-    gsap.from(heroSplit.chars, {
-      yPercent: 100,
-      opacity: 0,
-      ease: "expo.out",
-      duration: 1.8,
+      gsap.from(paragraphSplit.lines, {
+        yPercent: 100,
+        opacity: 0,
+        ease: "expo.out",
+        duration: 1.8,
+        stagger: 0.06,
+        delay: 1,
+      });
     });
 
-    gsap.from(paragraphSplit.lines, {
-      yPercent: 100,
-      opacity: 0,
-      ease: "expo.out",
-      duration: 1.8,
-      stagger: 0.06,
-      delay: 1,
-    });
-
-    const tl = gsap.timeline({
+    // ---------------- HERO PARALLAX ----------------
+    gsap.timeline({
       scrollTrigger: {
-        trigger: ".video-wrapper",
+        trigger: "#hero",
         start: "top top",
-        end: "+=100%",
-        scrub: 1,
-        pin: true,
-        pinSpacing: false,
-        anticipatePin: 1,
+        end: "bottom top",
+        scrub: true,
       },
     });
 
+    // ---------------- VIDEO SCRUB ----------------
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.pause();
+    video.currentTime = 0;
+
+    const startValue = isMobile ? "top top" : "center 60%";
+    // const endValue = isMobile ? "140% top" : "bottom top";
+    const endValue = isMobile
+      ? `${Math.min(video.duration * 30, 180)}% top`
+      : "bottom top";
+
     video.onloadedmetadata = () => {
-      tl.to(video, {
-        currentTime: video.duration,
-        ease: "none",
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: video,
+            start: startValue,
+            end: endValue,
+            scrub: true,
+            pin: true, // ✅ safe because video is absolute
+          },
+        })
+        .to(video, {
+          currentTime: video.duration,
+          ease: "none",
+        });
     };
   }, [isMobile]);
 
   return (
     <>
+      {/* ---------------- HERO CONTENT ---------------- */}
       <section id="hero">
         <h1 className="title">Born to Race - Engineered to Win</h1>
 
@@ -89,16 +99,17 @@ const Hero = () => {
         </div>
       </section>
 
-      <div className="video-wrapper">
+      {/* ---------------- VIDEO OVERLAY ---------------- */}
+      <div className="video ">
         <video ref={videoRef} muted playsInline preload="auto">
-          {/* Mobile first */}
+          {/* MOBILE FIRST */}
           <source
             src="/videos/forSmallScreen.mp4"
             media="(max-width: 767px)"
             type="video/mp4"
           />
 
-          {/* Desktop fallback */}
+          {/* DESKTOP */}
           <source
             src="/videos/forBigScreen.mp4"
             media="(min-width: 768px)"
