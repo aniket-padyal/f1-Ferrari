@@ -196,38 +196,24 @@ const socials = [
   },
 ];
 
-const sliderLists = [
+const driverLists = [
   {
     id: 1,
-    name: "Classic Mojito",
-    image: "/images/drink1.png",
-    title: "Simple Ingredients, Bold Flavor",
+    name: "Charles Leclerc",
+    image: "/images/leclerc.png",
+    title: "Ferrari’s Rising Force",
     description:
-      "Made with tequila, lime juice, and orange liqueur, the Margarita is easy to make and full of character. Add a salted rim for the perfect drink on summer nights.",
+      "Raised in the Ferrari ecosystem, Charles Leclerc represents raw speed, precision, and fearless racing. He embodies the future of Scuderia Ferrari.",
+   
   },
   {
     id: 2,
-    name: "Raspberry Mojito",
-    image: "/images/drink2.png",
-    title: "A Zesty Classic That Never Fails",
+    name: "Lewis Hamilton",
+    image: "/images/hamilton.png",
+    title: "Seven-Time World Champion",
     description:
-      "The Margarita is a classic that balances tangy lime, smooth tequila, and a touch of sweetness. Shaken, frozen, or on the rocks—it’s always crisp & refreshing.",
-  },
-  {
-    id: 3,
-    name: "Violet Breeze",
-    image: "/images/drink3.png",
-    title: "Simple Ingredients, Bold Flavor",
-    description:
-      "Made with tequila, lime juice, and orange liqueur, the Margarita is easy to make and full of character. Add a salted rim for the perfect drink on summer nights.",
-  },
-  {
-    id: 4,
-    name: "Curacao Mojito",
-    image: "/images/drink4.png",
-    title: "Crafted With Care, Poured With Love",
-    description:
-      "Each cocktail is made with fresh ingredients and a passion for perfecting every pour, whether you're celebrating or simply relaxing.",
+      "One of the greatest drivers in Formula 1 history, Lewis Hamilton brings unmatched experience, racecraft, and championship mentality to Scuderia Ferrari.",
+   
   },
 ];
 
@@ -241,5 +227,5 @@ export {
   openingHours,
   storeInfo,
   socials,
-  sliderLists,
+  driverLists,
 };
