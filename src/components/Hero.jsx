@@ -18,9 +18,12 @@ const Hero = () => {
 
       heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
 
+      gsap.set(".title", { visibility: "visible" });
+
       gsap.from(heroSplit.chars, {
         yPercent: 100,
-        opacity: 0,
+        // opacity: 0,
+        autoAlpha: 0,
         ease: "expo.out",
         duration: 1.8,
       });
@@ -77,7 +80,9 @@ const Hero = () => {
     <>
       {/* ---------------- HERO CONTENT ---------------- */}
       <section id="hero">
-        <h1 className="title">Born to Race - Engineered to Win</h1>
+        <h1 className="title   ">
+          Born to Race - Engineered to Win
+        </h1>
 
         <div className="body">
           <div className="content">

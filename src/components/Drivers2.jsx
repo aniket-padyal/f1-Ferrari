@@ -108,7 +108,7 @@ const Drivers = () => {
         </div>
 
         {/* Driver Image */}
-        <div className="cocktail">
+        <div className="cocktail overflow-hidden">
           <img
             ref={imageRef}
             src={currentDriver.image}
